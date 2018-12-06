@@ -1,0 +1,105 @@
+<html lang="en">
+
+<head>
+    <title>Registration Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+        <script src="script/register.js"></script>
+    <style>
+        .from-center {
+            margin: 15% auto;
+            padding: 2% auto;
+            width: 50%;
+        }
+
+        input {
+            background: transparent;
+            border-top: transparent !important;
+            border-left: transparent !important;
+            border-right: transparent !important;
+            border-bottom: 1px solid !important;
+            padding-left: 0;
+        }
+
+        input:active {
+            outline: none !important;
+        }
+
+        @media screen and (max-width: 900px) {
+            .from-center {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="register.php" method="POST" id="myInput" onsubmit="return Validate()" name="valid_form" class="from-center text-danger">
+            <a href="" class="my-3">
+            </a>
+            <h4 class="my-3 text-dark">Create your
+                <i>Trend Shop</i> Account</h4>
+
+            <div class="form-group d-sm-flex mt-5">
+                <div class="form-group w-100 pr-2F name_div">
+                    <input type="text" name="Fname" id="fname" class="form-control" placeholder="Firstname">
+                    <div id="Fname_error"></div>
+                </div>
+                <div class="form-group w-100 pl-2 Lname_div">
+                    <input type="text" name="Lname" id="lname" class="form-control" placeholder="Lastname">
+                    <div id="Lname_error"></div>
+                </div>
+            </div>
+            <div class="form-group email_div">
+                <input type="text" name="email" id="Email" class="form-control" placeholder="Email address">
+                <div id="email_error"></div>
+            </div>
+            <div class="form-group d-sm-flex mb-0">
+                <div class="form-group w-100 pr-2 password_div">
+                    <input type="password" name="password" id="pass" class="form-control" placeholder="Password">
+                    <div id="password_error"></div>
+                </div>
+
+                <div class="form-group w-100 ml-auto pass_confirm_div">
+                    <input type="password" name="Cpassword" id="cpass" class="form-control" placeholder="Confirm Password">
+                    <div id="cpassword_error"></div>
+                </div>
+                <div class="text-dark m-auto">
+                    <i class="fa fa-eye" aria-hidden="true" onclick="password()" id="hide" ></i>
+                </div>
+
+            </div>
+            <p><b id="text">CAPS LOCK IS ON!</b></p>
+            <script>
+                    var input = document.getElementById("myInput");
+                    var text = document.getElementById("text");
+                    input.addEventListener("keyup", function(event) {
+                    
+                    if (event.getModifierState("CapsLock")) {
+                        text.style.display = "block";
+                      } else {
+                        text.style.display = "none"
+                      }
+                    });
+                    </script>
+            <div class="d-sm-flex">
+                <a class="btn btn-outline-primary" role="button" href="Login.html">Sign In Instead</a>
+                <button class="btn btn-primary ml-auto" type="submit" name="register">Sign Up</button>
+                
+  
+            </div>
+        </form>
+    </div>
+        
+         
+</body>
+
+</html>
