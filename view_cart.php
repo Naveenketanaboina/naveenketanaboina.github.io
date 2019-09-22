@@ -2,7 +2,6 @@
     session_start();
     include("inc/db_connect.php");
     include("inc/head_element.php");
-    include("inc/user.php");
 ?>
 <title>Cart</title>
 <link rel="stylesheet" href="style/css.css">

@@ -5,25 +5,18 @@
 ?>
 <title>Product</title>
 <link rel="stylesheet" href="style/css.css">
-<?php include("inc/header.php"); 
-include("inc/carousel.php"); ?>
+<?php include("inc/header.php"); ?>
 <?php
     if(isset($_GET['Search'])){
 ?>
     <div class="products-container text-center ">
         <?php
             $product_image = $_GET['product_image'];
-            $product_image_lower = strtolower($product_image);
-            $product_image_nospace = str_replace(" ", "", $product_image_lower);
-            $sql_query = "SELECT * FROM products WHERE product_image LIKE '%$product_image_nospace%'";
+            $sql_query = "SELECT * FROM products WHERE product_image LIKE '%$product_image%'";
             if(!$sql_query && mysqli_num_rows($sql_query) < 1){
-                $sql_query = "SELECT * FROM products WHERE product_image LIKE '$product_image_nospace%'";
+                $sql_query = "SELECT * FROM products WHERE product_image LIKE '$product_image%'";
                 if(!$sql_query && mysqli_num_rows($sql_query) < 1){
-                    $sql_query = "SELECT * FROM products WHERE product_image LIKE '%$product_image_nospace'";
-                    if(!$sql_query && mysqli_num_rows($sql_query) < 1)
-                    {
-                        $sql_query = "SELECT * FROM products WHERE product_image LIKE '$product_image_nospace'";
-                    }
+                    $sql_query = "SELECT * FROM products WHERE product_image LIKE '%$product_image'";
                 }
             }
             $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
@@ -33,7 +26,7 @@ include("inc/carousel.php"); ?>
         <form action="product.php" method="GET"  style="cursor: pointer">
             <button class="bg-white border-0 outline-none p-1" type="submit" style="border-radius: 10px;" name="Submit">
                 <div>
-                    <img class="img-fluid " name="product_image" width="400px  " src="Images/<?php echo $row["product_image"]; ?>.jpg">
+                    <img class="img-fluid w-100" name="product_image" src="Images/<?php echo $row["product_image"]; ?>.jpg">
                 </div>
                 <div class="bg-light">
                     <h4 name="product_name">

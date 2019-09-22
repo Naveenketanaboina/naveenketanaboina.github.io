@@ -5,21 +5,61 @@
 ?>
 <title>Way2Gift</title>
 <link rel="stylesheet" href="style/css.css">
-<?php include("inc/header.php"); 
-include("inc/carousel.php"); ?>
+<?php include("inc/header.php"); ?>
 
+
+
+<nav class="navbar navbar-expand-lg d-xl-flex d-none py-3 " style="background-color: rgb(129, 123, 216)">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a href="#Anniversary" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Anniversary Gifts</span>
+        </a>
+        <a href="#Birthday" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Birthday Gifts</span>
+        </a>
+        <a href="#Mother" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Mother</span>
+        </a>
+        <a href="#Father" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Father</span>
+        </a>
+        <a href="#Husband" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Husband</span>
+        </a>
+        <a href="#Wife" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Wife</span>
+        </a>
+        <a href="#Friend" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Friend</span>
+        </a>
+        <a href="#Brother" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Brother</span>
+        </a>
+        <a href="#Sister" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Gifts for Sister</span>
+        </a>
+        <a href="#Best_Selling" class="flex-grow-1 font-weight-bold text-white">
+            <span class="nav-hover">Best Selling</span>
+        </a>
+    </div>
+</nav>
 <main>
+    
+
+    
+        
+
     <div class="products-container text-center position-relative">
         <?php
-            $sql_query = "SELECT product_name, product_image, product_price FROM products LIMIT 40";	
-            $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
-            while( $row = mysqli_fetch_assoc($resultset) ) {
-        ?>
+                $sql_query = "SELECT product_name, product_image, product_price FROM products";	
+                $resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
+                while( $row = mysqli_fetch_assoc($resultset) ) {
+            ?>
         <div class="d-inline-block border m-3 box-shadow" style="border-radius: 10px;">
             <form action="product.php" method="GET"  style="cursor: pointer">
                 <button class="bg-white border-0 outline-none p-1" type="submit" style="border-radius: 10px;" name="Submit">
                     <div>
-                        <img class="img-fluid" name="product_image" width="400px" src="Images/<?php echo $row["product_image"]; ?>.jpg">
+                        <img class="img-fluid w-100" name="product_image" src="Images/<?php echo $row["product_image"]; ?>.jpg">
                     </div>
                     <div class="bg-light">
                         <h4 name="product_name">

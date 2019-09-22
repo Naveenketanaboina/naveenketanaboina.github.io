@@ -1,18 +1,16 @@
 <?php
-include("inc/head_element.php");
     // If the values are posted, insert them into the database.
     if (isset($_POST['email']) && isset($_POST['password'])){
         $Fname = $_POST['Fname'];
         $Lname = $_POST['Lname'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $cpassword = $_POST['Cpassword'];
+        //$cpassword = $_POST['Cpassword'];
         $connection = mysqli_connect("localhost", "root", "");
         mysqli_select_db($connection,"login");
         
         $slquery = "SELECT 1 FROM users WHERE email = '$email'";
         $selectresult = mysqli_query($connection, $slquery);
-
         if(!$selectresult || mysqli_num_rows($selectresult) > 0)
         {
             echo "<script>
@@ -24,8 +22,14 @@ include("inc/head_element.php");
             $query = "INSERT INTO `users` (username, email, password) VALUES ('$Fname $Lname', '$email', '$password')";
             $result = mysqli_query($connection, $query);
             if($result){
-                header("Location: http://localhost/Way2Gifts/otp.php"); /* Redirect browser */
+                echo "<script>
+                    alert('Registered Successfully');
+                </script>";
+                header("Location: http://localhost/Way2Gifts/Login.html"); /* Redirect browser */
                 exit();
+            }
+            else{
+                echo "not registered";
             }
         }
     }

@@ -20,7 +20,7 @@ if(mysqli_num_rows($query_result)==0) {
         // check if password are equal
         if($row_query['password']==$_POST['pass']){
             $_SESSION['pass'] = $_POST['pass'];
-            $_SESSION['username'] = $row_query['username'];
+            $_SESSION['username'] = $row_query['email'];
           
             header("Location: http://localhost/Way2Gifts/main.php");
            
